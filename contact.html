@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="assets/favicon.png" type="image/x-icon">
+        <link rel="stylesheet" href="styles/style.css" type="text/css">
+        <link rel="stylesheet" href="styles/contact.css" type="text/css">
+        <title>Mossberg's Portfolio | Contact Me</title>
+    </head>
+
+    <body>
+        <div class="grid-container">
+            <header>
+                <a href="index.html"><h1>Johan Mossberg</h1></a>
+            </header>
+            <nav>
+                <ul>
+                    <li><h2><a href="index.html"> About</a></h2></li>
+                    <li><h2><a href="projects.html"> Projects</a></h2></li>
+                    <li><h2><a href="skills.html"> Skills</a></h2></li>
+                    <li id="current-page"><h2><a href="contact.html"> Contact</a></h2></li>
+                </ul>
+            </nav>
+            <main>
+                <section class="contact_main">
+                    <h2>Contact Me</h2>
+                    <form class="contact-form-main" action="#" method="post" aria-label="Contact form">
+                        <div class="form-first-name-main">
+                            <input id="first-name" name="first-name" type="text" placeholder="First Name" required>
+                        </div>
+
+                        <div class="form-last-name-main">
+                            <input id="last-name" name="last-name" type="text" placeholder="Last Name" required>
+                        </div>
+
+                        <div class="form-email-main">
+                            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                        </div>
+
+                        <div class="form-message-field-main">
+                            <textarea id="message" name="message" rows="8" placeholder="Write your message here" required></textarea>
+                        </div>
+
+                        <div class="form-subject-main">
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Select Subject</option>
+                                <option value="question">Question</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="collaboration">Collaboration</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-send-main">
+                            <button type="submit">Send Message</button>
+                        </div>
+
+                        <div class="form-clear-main"> 
+                            <button type="reset">Clear</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+            <footer>
+                <p>©2025 Johan Mossberg</p>
+                <div class="footericons">
+                    <a href="https://mail.google.com" aria-label="Gmail"><img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico" alt="Gmail link"></a>
+                    <a href="https://facebook.com/" aria-label="Facebook"><img src="https://static.xx.fbcdn.net/rsrc.php/yx/r/e9sqr8WnkCf.ico" alt="Facebook link"></a>
+                    <a href="https://linkedin.com/" aria-label="LinkedIn"><img src="https://static.licdn.com/aero-v1/sc/h/al2o9zrvru7aqj8e1x2rzsrca" alt="Linkedin link"></a>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
