@@ -27,29 +27,39 @@
                     <h2>Contact Me</h2>
                     <form class="contact-form-main" action="#" method="post" aria-label="Contact form">
                         <div class="form-first-name-main">
-                            <input id="first-name" name="first-name" type="text" placeholder="First Name" required>
+                            <label for="first-name">First Name *</label>
+                            <input id="first-name" name="first-name" type="text" placeholder="John" required>
                         </div>
 
                         <div class="form-last-name-main">
-                            <input id="last-name" name="last-name" type="text" placeholder="Last Name" required>
+                            <label for="last-name">Last Name *</label>
+                            <input id="last-name" name="last-name" type="text" placeholder="Doe" required>
                         </div>
 
                         <div class="form-email-main">
-                            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                            <label for="email">Email Address *</label>
+                            <input id="email" name="email" type="email" placeholder="john.doe@example.com" required>
                         </div>
 
-                        <div class="form-message-field-main">
-                            <textarea id="message" name="message" rows="8" placeholder="Write your message here" required></textarea>
+                        <div class="form-phone-main">
+                            <label for="phone">Phone Number</label>
+                            <input id="phone" name="phone" type="tel" placeholder="+1 (555) 123-4567">
                         </div>
 
                         <div class="form-subject-main">
+                            <label for="subject">Subject *</label>
                             <select id="subject" name="subject" required>
-                                <option value="" disabled selected>Select Subject</option>
+                                <option value="" disabled selected>Choose a subject</option>
                                 <option value="question">Question</option>
                                 <option value="feedback">Feedback</option>
                                 <option value="collaboration">Collaboration</option>
                                 <option value="other">Other</option>
                             </select>
+                        </div>
+
+                        <div class="form-message-field-main">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="8" placeholder="Your message..." required></textarea>
                         </div>
 
                         <div class="form-send-main">
