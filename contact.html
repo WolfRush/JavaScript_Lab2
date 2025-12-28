@@ -25,25 +25,29 @@
             <main>
                 <section class="contact_main">
                     <h2>Contact Me</h2>
-                    <form class="contact-form-main" action="#" method="post" aria-label="Contact form">
+                    <form class="contact-form-main" action="#" method="post" aria-label="Contact form" novalidate>
                         <div class="form-first-name-main">
                             <label for="first-name">First Name *</label>
                             <input id="first-name" name="first-name" type="text" placeholder="John" required>
+                            <p class="error-message"></p>
                         </div>
 
                         <div class="form-last-name-main">
                             <label for="last-name">Last Name *</label>
                             <input id="last-name" name="last-name" type="text" placeholder="Doe" required>
+                            <p class="error-message"></p>
                         </div>
 
                         <div class="form-email-main">
                             <label for="email">Email Address *</label>
                             <input id="email" name="email" type="email" placeholder="john.doe@example.com" required>
+                            <p class="error-message"></p>
                         </div>
 
                         <div class="form-phone-main">
                             <label for="phone">Phone Number</label>
                             <input id="phone" name="phone" type="tel" placeholder="+1 (555) 123-4567">
+                            <p class="error-message"></p>
                         </div>
 
                         <div class="form-subject-main">
@@ -55,11 +59,13 @@
                                 <option value="collaboration">Collaboration</option>
                                 <option value="other">Other</option>
                             </select>
+                            <p class="error-message"></p>
                         </div>
 
                         <div class="form-message-field-main">
                             <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="8" placeholder="Your message..." required></textarea>
+                            <textarea id="message" name="message" rows="8" placeholder="Your message..." required minlength="20"></textarea>
+                            <p class="error-message"></p>
                         </div>
 
                         <div class="form-send-main">
