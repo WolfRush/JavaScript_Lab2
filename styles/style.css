@@ -23,7 +23,7 @@ h2 {
   color: rgb(255, 200, 50);
 }
 
-h2:not(nav h2, .contact h2, .timeline h2) {
+h2:not(nav h2, .timeline h2) {
   background: linear-gradient( rgb(40, 40, 50) 30%,  rgba(41, 34, 48, 0.5));
   padding: 0.5rem 1rem;
   border-radius: 1rem;
@@ -334,7 +334,7 @@ main {
   bottom: 0.5rem;
 }
 /* -- Contact Form Section -- */
-.contact {
+/* .contact {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -416,7 +416,7 @@ main {
   background: rgb(255, 200, 50);
   color: rgb(20, 20, 25);
   box-shadow: 0 4px 12px rgba(255, 200, 50, 0.3);
-}
+} */
 /* -- Footer -- */
 footer {
   display: flex;

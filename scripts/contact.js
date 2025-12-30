@@ -1,41 +1,48 @@
 console.log("Contact page script loaded.");
 
 // Form field elements
-let firstName = document.getElementById('first-name');
-let lastName = document.getElementById('last-name');
-let email = document.getElementById('email');
-let phone = document.getElementById('phone');
-let subject = document.getElementById('subject');
-let message = document.getElementById('message');
-let sendButton = document.getElementById('form-send');
-let clearButton = document.getElementById('form-clear');
-
-//Error message elements 
-let firstNameError = document.getElementById('first-name-error');
-let lastNameError = document.getElementById('last-name-error');
-let emailError = document.getElementById('email-error');
-let phoneError = document.getElementById('phone-error');
-let subjectError = document.getElementById('subject-error');
-let messageError = document.getElementById('message-error');
-
-
-let isValid = true;
+const firstName = document.getElementById('first-name');
+const lastName = document.getElementById('last-name');
+const email = document.getElementById('email');
+const phone = document.getElementById('phone');
+const subject = document.getElementById('subject');
+const message = document.getElementById('message');
+const sendButton = document.getElementById('form-send');
+const clearButton = document.getElementById('form-clear');
 
 // Validation that name is only letters
 function validateName(name) {
-    let nameRegex = /^[A-Za-z]+$/;
+    const nameRegex = /^[A-Za-z]+$/;
     return nameRegex.test(name);
 }
 
 sendButton.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent form submission for validation
+    event.preventDefault();
+
+    let isValid = true; // Assume form is valid
+
+    // Validate each field
     if (!validateName(firstName.value)) {
-        firstNameError.textContent = "First name must contain only letters.";
+        showError(firstName, "First name must contain only letters.");
+        firstName.classList.remove('contact-form-valid');
+        firstName.classList.add('contact-form-invalid');
         isValid = false;
     }
+    else {
+        clearError(firstName);
+        firstName.classList.remove('contact-form-invalid');
+        firstName.classList.add('contact-form-valid');
+    }
     if (!validateName(lastName.value)) {
-        lastNameError.textContent = "Last name must contain only letters.";
+        showError(lastName, "Last name must contain only letters.");
+        lastName.classList.remove('contact-form-valid');
+        lastName.classList.add('contact-form-invalid');
         isValid = false;
+    }
+    else {
+        clearError(lastName);
+        lastName.classList.remove('contact-form-invalid');
+        lastName.classList.add('contact-form-valid');
     }
 
     if (isValid) {
@@ -44,5 +51,35 @@ sendButton.addEventListener('click', function(event) {
     else {
         alert("Please correct the errors in the form before submitting.");
     }
-    
+
 });
+
+clearButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    clearForm(); 
+    clearError(firstName);
+    clearError(lastName);
+    clearError(email);
+    clearError(phone);
+    clearError(subject);
+    clearError(message);
+});
+
+// Functions to handle error messages
+function showError(input, msg) {
+    const errorElement = document.getElementById(input.id + '-error');
+    errorElement.textContent = msg;
+}
+    
+function clearError(input) {
+    const errorElement = document.getElementById(input.id + '-error');
+    errorElement.textContent = "";
+}
+function clearForm() {
+    firstName.value = "";
+    lastName.value = "";
+    email.value = "";
+    phone.value = "";
+    subject.value = "";
+    message.value = "";
+}
