@@ -10,7 +10,7 @@ const message = document.getElementById('message');
 const sendButton = document.getElementById('form-send');
 const clearButton = document.getElementById('form-clear');
 
-// Validation that name is only letters
+// Validation functions
 function validateName(name) {
     const nameRegex = /^[a-zA-Z]+$/;
     return nameRegex.test(name);
@@ -30,6 +30,19 @@ function validateMessage(message) {
     return message.trim().length > 20;
 }
 
+//Message Character Counter Event Listener
+message.addEventListener('input', function() {
+    const charCount = message.value.length;
+    const counterElement = document.getElementById('message-counter');
+    counterElement.textContent = `${charCount}/20 characters`;
+    if (charCount < 20) {
+        counterElement.style.color = '#dc3545';
+    } else {
+        counterElement.style.color = 'rgb(30, 223, 72)';
+    }
+});
+
+// Send Button Event Listener
 sendButton.addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -111,7 +124,7 @@ sendButton.addEventListener('click', function(event) {
         message.classList.add('contact-form-valid');
     }
 
-    // Valid Check
+    // if Valid Check
     if (isValid) {
         const alertMessage = "Thank you " + firstName.value + "! I will contact you soon!";
         const alertDiv = document.createElement('div');
@@ -131,6 +144,7 @@ sendButton.addEventListener('click', function(event) {
 
 });
 
+// Clear Button Event Listener
 clearButton.addEventListener('click', function(event) {
     event.preventDefault();
     clearForm(); 
@@ -153,6 +167,8 @@ function clearError(input) {
     const errorElement = document.getElementById(input.id + '-error');
     errorElement.textContent = "";
 }
+
+// Function to clear form fields
 function clearForm() {
     firstName.value = "";
     lastName.value = "";
