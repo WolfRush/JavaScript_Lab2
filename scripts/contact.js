@@ -17,7 +17,7 @@ function validateName(name) {
 }
 
 function validateEmail(email) {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
 }
 
@@ -113,10 +113,20 @@ sendButton.addEventListener('click', function(event) {
 
     // Valid Check
     if (isValid) {
-        alert("Form submitted successfully!" + "\nFirst Name: " + firstName.value + "\nLast Name: " + lastName.value + "\nEmail: " + email.value + "\nPhone: " + phone.value + "\nSubject: " + subject.value +  "\nMessage: " + message.value);
+        const alertMessage = "Thank you " + firstName.value + "! I will contact you soon!";
+        const alertDiv = document.createElement('div');
+        alertDiv.textContent = alertMessage;
+        alertDiv.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background: black; color: white; border-radius: 5px; border: 1px solid rgb(30, 223, 72); z-index: 1000;';
+        document.body.appendChild(alertDiv);
+        
+        clearForm();
+        clearBoarders();
+        setTimeout(() => {
+            alertDiv.remove();
+        }, 3000);
     }
     else {
-        alert("Please correct the errors in the form before submitting.");
+        console.log("Form contains errors. Please correct them before submitting.");
     }
 
 });
@@ -124,6 +134,7 @@ sendButton.addEventListener('click', function(event) {
 clearButton.addEventListener('click', function(event) {
     event.preventDefault();
     clearForm(); 
+    clearBoarders();
     clearError(firstName);
     clearError(lastName);
     clearError(email);
@@ -149,4 +160,13 @@ function clearForm() {
     phone.value = "";
     subject.value = "";
     message.value = "";
+}
+
+function clearBoarders() {
+    firstName.classList.remove('contact-form-valid', 'contact-form-invalid');
+    lastName.classList.remove('contact-form-valid', 'contact-form-invalid');
+    email.classList.remove('contact-form-valid', 'contact-form-invalid');
+    phone.classList.remove('contact-form-valid', 'contact-form-invalid');
+    subject.classList.remove('contact-form-valid', 'contact-form-invalid');
+    message.classList.remove('contact-form-valid', 'contact-form-invalid');
 }

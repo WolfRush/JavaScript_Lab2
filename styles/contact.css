@@ -49,6 +49,10 @@
     font-size: 0.95rem;
 }
 
+.contact-form label .required {
+    color: #dc3545;
+}
+
 /* Input, select, textarea styling */
 .contact-form input,
 .contact-form select,
