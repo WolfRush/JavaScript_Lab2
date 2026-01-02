@@ -12,8 +12,22 @@ const clearButton = document.getElementById('form-clear');
 
 // Validation that name is only letters
 function validateName(name) {
-    const nameRegex = /^[A-Za-z]+$/;
+    const nameRegex = /^[a-zA-Z]+$/;
     return nameRegex.test(name);
+}
+
+function validateEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+}
+
+function validatePhone(phone) {
+    const phoneRegex = /^\+?[0-9]{7,15}$/;
+    return phoneRegex.test(phone);
+}
+
+function validateMessage(message) {
+    return message.trim().length > 20;
 }
 
 sendButton.addEventListener('click', function(event) {
@@ -21,7 +35,7 @@ sendButton.addEventListener('click', function(event) {
 
     let isValid = true; // Assume form is valid
 
-    // Validate each field
+    // Validate Names
     if (!validateName(firstName.value)) {
         showError(firstName, "First name must contain only letters.");
         firstName.classList.remove('contact-form-valid');
