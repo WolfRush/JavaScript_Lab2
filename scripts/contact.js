@@ -59,6 +59,59 @@ sendButton.addEventListener('click', function(event) {
         lastName.classList.add('contact-form-valid');
     }
 
+    // Validate Email
+    if (!validateEmail(email.value)) {
+        showError(email, "Please enter a valid email address.");
+        email.classList.remove('contact-form-valid');
+        email.classList.add('contact-form-invalid');
+        isValid = false;
+    }
+    else {
+        clearError(email);
+        email.classList.remove('contact-form-invalid');
+        email.classList.add('contact-form-valid');
+    }
+
+    // Validate Phone
+    if (!validatePhone(phone.value) && phone.value.trim() !== "") {
+        showError(phone, "Please enter a valid phone number.");
+        phone.classList.remove('contact-form-valid');
+        phone.classList.add('contact-form-invalid');
+        isValid = false;
+    }
+    else {
+        clearError(phone);
+        phone.classList.remove('contact-form-invalid');
+        phone.classList.add('contact-form-valid');
+    }
+
+    // Validate Subject
+    if (subject.value.trim() === "") {
+        showError(subject, "Subject cannot be empty.");
+        subject.classList.remove('contact-form-valid'); 
+        subject.classList.add('contact-form-invalid');
+        isValid = false;
+    }
+    else {
+        clearError(subject);
+        subject.classList.remove('contact-form-invalid');
+        subject.classList.add('contact-form-valid');
+    }
+
+    // Validate Message
+    if (!validateMessage(message.value)) {
+        showError(message, "Message cannot be under 20 characters.");
+        message.classList.remove('contact-form-valid');
+        message.classList.add('contact-form-invalid');
+        isValid = false;
+    }
+    else {
+        clearError(message);
+        message.classList.remove('contact-form-invalid');
+        message.classList.add('contact-form-valid');
+    }
+
+    // Valid Check
     if (isValid) {
         alert("Form submitted successfully!" + "\nFirst Name: " + firstName.value + "\nLast Name: " + lastName.value + "\nEmail: " + email.value + "\nPhone: " + phone.value + "\nSubject: " + subject.value +  "\nMessage: " + message.value);
     }
