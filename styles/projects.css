@@ -5,6 +5,21 @@
     font-size: 1.1rem;
 }
 
+.project-card.fade-in {
+    animation: fadeInUp 0.4s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .project-card:hover {
     box-shadow: 0 0 10px rgb(120, 80, 160);
     transform: scale(1.02);
