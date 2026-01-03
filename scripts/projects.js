@@ -101,6 +101,13 @@ function displayProjects() {
         container.appendChild(imageWrapper);
         container.appendChild(description);
         
+        // Add link functionality if link exists
+        
+        container.style.cursor = 'pointer';
+        container.addEventListener('click', () => {
+            window.open(project.link, '_blank');
+        });
+        
         // Add to project list
         projectList.appendChild(container);
     });
