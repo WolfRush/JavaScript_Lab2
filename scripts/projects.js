@@ -2,7 +2,7 @@ console.log("Projects page script loaded.");
 
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projectList = document.querySelector('.project-list');
-const filterCounter = document.querySelector('.filter-counter');
+const filterCounter = document.getElementById('filter-counter');
 
 
 const projects = [
@@ -67,6 +67,9 @@ function displayProjects(filteredArray = projects) {
     // Clear existing content
     projectList.innerHTML = '';
     
+    // Update filter counter
+    filterCounter.textContent = `Showing ${filteredArray.length} of ${projects.length} projects`;
+
     // Loop through all projects and create cards
     filteredArray.forEach(project => {
         // Create container div
