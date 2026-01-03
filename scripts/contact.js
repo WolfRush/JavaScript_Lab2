@@ -31,7 +31,9 @@ function validateMessage(message) {
 }
 
 //Message Character Counter Event Listener
-message.addEventListener('input', function() {
+message.addEventListener('input', charfunction);
+
+function charfunction() {
     const charCount = message.value.length;
     const counterElement = document.getElementById('message-counter');
     counterElement.textContent = `${charCount}/20 characters`;
@@ -40,7 +42,7 @@ message.addEventListener('input', function() {
     } else {
         counterElement.style.color = 'rgb(30, 223, 72)';
     }
-});
+}
 
 // Send Button Event Listener
 sendButton.addEventListener('click', function(event) {
@@ -133,7 +135,6 @@ sendButton.addEventListener('click', function(event) {
         document.body.appendChild(alertDiv);
         
         clearForm();
-        clearBoarders();
         setTimeout(() => {
             alertDiv.remove();
         }, 3000);
@@ -148,7 +149,6 @@ sendButton.addEventListener('click', function(event) {
 clearButton.addEventListener('click', function(event) {
     event.preventDefault();
     clearForm(); 
-    clearBoarders();
     clearError(firstName);
     clearError(lastName);
     clearError(email);
@@ -193,6 +193,8 @@ function clearForm() {
     phone.value = "";
     subject.value = "";
     message.value = "";
+    clearBoarders();
+    charfunction(); // Reset character counter
 }
 
 function clearBoarders() {
