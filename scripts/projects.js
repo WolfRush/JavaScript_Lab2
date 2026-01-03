@@ -63,14 +63,12 @@ link: "http://mossymound.site/johmos-5/uppgift4/html/index.html#main-content"
 ];
 
 // Function to display all projects
-function displayProjects() {
-    const projectList = document.querySelector('.project-list');
-    
+function displayProjects(filteredArray = projects) {
     // Clear existing content
     projectList.innerHTML = '';
     
     // Loop through all projects and create cards
-    projects.forEach(project => {
+    filteredArray.forEach(project => {
         // Create container div
         const container = document.createElement('div');
         container.className = 'project-card';
@@ -120,8 +118,14 @@ function displayProjects() {
 
 function filterProjects (filteredCategory) {
     console.log("Filtering projects by category:", filteredCategory);
+    let filteredArray = projects.filter(function(project) {
+        return project.category === filteredCategory;
+    });
+    if (filteredCategory === 'all') {
+        filteredArray = projects;
+    }
+    displayProjects(filteredArray);
 }
-
 
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -133,4 +137,4 @@ filterButtons.forEach(button => {
 });
 
 // Display projects on page load
-document.addEventListener('DOMContentLoaded', displayProjects);
+document.addEventListener('DOMContentLoaded', displayProjects());
