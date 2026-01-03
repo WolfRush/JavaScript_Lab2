@@ -3,6 +3,7 @@ console.log("Projects page script loaded.");
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projectList = document.querySelector('.project-list');
 const filterCounter = document.getElementById('filter-counter');
+const currentPage = window.location.pathname.split("/").pop();
 
 
 const projects = [
@@ -68,7 +69,13 @@ function displayProjects(filteredArray = projects) {
     projectList.innerHTML = '';
     
     // Update filter counter
-    filterCounter.textContent = `Showing ${filteredArray.length} of ${projects.length} projects`;
+    if (filterCounter) {
+        filterCounter.textContent = `Showing ${filteredArray.length} of ${projects.length} projects`;
+    }
+
+    if (currentPage === 'index.html') {
+        filteredArray = filteredArray.slice(0, 2); // Show only first 2 projects on index page
+    }
 
     // Loop through all projects and create cards
     filteredArray.forEach(project => {
@@ -107,8 +114,7 @@ function displayProjects(filteredArray = projects) {
         container.appendChild(imageWrapper);
         container.appendChild(description);
         
-        // Add link functionality if link exists
-        
+        // Add link functionality
         container.style.cursor = 'pointer';
         container.addEventListener('click', () => {
             window.open(project.link, '_blank');
