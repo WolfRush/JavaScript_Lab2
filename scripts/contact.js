@@ -10,6 +10,8 @@ const message = document.getElementById('message');
 const sendButton = document.getElementById('form-send');
 const clearButton = document.getElementById('form-clear');
 
+charfunction(); // Initialize character counter on page load
+
 // Validation functions
 function validateName(name) {
     const nameRegex = /^[a-zA-Z]+$/;
@@ -53,77 +55,53 @@ sendButton.addEventListener('click', function(event) {
     // Validate Names
     if (!validateName(firstName.value)) {
         showError(firstName, "First name must contain only letters.");
-        firstName.classList.remove('contact-form-valid');
-        firstName.classList.add('contact-form-invalid');
         isValid = false;
     }
     else {
         clearError(firstName);
-        firstName.classList.remove('contact-form-invalid');
-        firstName.classList.add('contact-form-valid');
     }
     if (!validateName(lastName.value)) {
-        showError(lastName, "Last name must contain only letters.");
-        lastName.classList.remove('contact-form-valid');
-        lastName.classList.add('contact-form-invalid');
+        showError(lastName, "Last name must contain only letters.");;
         isValid = false;
     }
     else {
         clearError(lastName);
-        lastName.classList.remove('contact-form-invalid');
-        lastName.classList.add('contact-form-valid');
     }
 
     // Validate Email
     if (!validateEmail(email.value)) {
         showError(email, "Please enter a valid email address.");
-        email.classList.remove('contact-form-valid');
-        email.classList.add('contact-form-invalid');
         isValid = false;
     }
     else {
         clearError(email);
-        email.classList.remove('contact-form-invalid');
-        email.classList.add('contact-form-valid');
     }
 
     // Validate Phone
     if (!validatePhone(phone.value) && phone.value.trim() !== "") {
         showError(phone, "Please enter a valid phone number.");
-        phone.classList.remove('contact-form-valid');
-        phone.classList.add('contact-form-invalid');
         isValid = false;
     }
     else {
         clearError(phone);
-        phone.classList.remove('contact-form-invalid');
-        phone.classList.add('contact-form-valid');
     }
 
     // Validate Subject
     if (subject.value.trim() === "") {
         showError(subject, "Subject cannot be empty.");
-        subject.classList.remove('contact-form-valid'); 
-        subject.classList.add('contact-form-invalid');
         isValid = false;
     }
     else {
         clearError(subject);
-        subject.classList.remove('contact-form-invalid');
-        subject.classList.add('contact-form-valid');
     }
 
     // Validate Message
     if (!validateMessage(message.value)) {
         showError(message, "Message cannot be under 20 characters.");
-        message.classList.remove('contact-form-valid');
-        message.classList.add('contact-form-invalid');
         isValid = false;
     }
     else {
         clearError(message);
-        message.classList.remove('contact-form-invalid');
-        message.classList.add('contact-form-valid');
     }
 
     // if Valid Check
@@ -159,6 +137,8 @@ clearButton.addEventListener('click', function(event) {
 
 // Functions to handle error messages
 function showError(input, msg) {
+    input.classList.remove('contact-form-valid');
+    input.classList.add('contact-form-invalid');
     const errorElement = document.getElementById(input.id + '-error');
     errorElement.textContent = msg;
     // Trigger animation by removing and re-adding the class
@@ -169,6 +149,8 @@ function showError(input, msg) {
 }
     
 function clearError(input) {
+    input.classList.remove('contact-form-invalid');
+    input.classList.add('contact-form-valid');
     const errorElement = document.getElementById(input.id + '-error');
     if (!errorElement.textContent) {
         errorElement.classList.remove('show-error', 'hide-error');
