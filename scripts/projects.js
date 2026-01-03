@@ -73,9 +73,8 @@ function displayProjects(filteredArray = projects) {
         filterCounter.textContent = `Showing ${filteredArray.length} of ${projects.length} projects`;
     }
 
-    // Show only first 2 projects on index page
     if (currentPage === 'index.html') {
-        filteredArray = filteredArray.slice(0, 2); 
+        filteredArray = filteredArray.slice(0, 2); // Show only first 2 projects on index page
     }
 
     // Loop through all projects and create cards
@@ -120,15 +119,7 @@ function displayProjects(filteredArray = projects) {
         container.addEventListener('click', () => {
             window.open(project.link, '_blank');
         });
-
-        // Card fade-in effect
-        container.classList.add('fade-in');
         
-        // Remove fade-in class after animation completes to allow hover
-        container.addEventListener('animationend', () => {
-            container.classList.remove('fade-in');
-        }, { once: true });
-
         // Add to project list
         projectList.appendChild(container);
     });
