@@ -163,14 +163,26 @@ function showError(input, msg) {
     errorElement.textContent = msg;
     // Trigger animation by removing and re-adding the class
     errorElement.classList.remove('show-error');
-    void errorElement.offsetWidth; // Force reflow to restart animation
+    void errorElement.offsetWidth; // Force restart animation
     errorElement.classList.add('show-error');
+    errorElement.classList.remove('hide-error');
 }
     
 function clearError(input) {
     const errorElement = document.getElementById(input.id + '-error');
-    errorElement.textContent = "";
+    if (!errorElement.textContent) {
+        errorElement.classList.remove('show-error', 'hide-error');
+        return;
+    }
+
+    // Play fade-out, then clear text
     errorElement.classList.remove('show-error');
+    errorElement.classList.add('hide-error');
+
+    setTimeout(() => {
+        errorElement.textContent = "";
+        errorElement.classList.remove('hide-error');
+    }, 200);
 }
 
 // Function to clear form fields

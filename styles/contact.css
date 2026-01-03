@@ -109,9 +109,11 @@ textarea.contact-form-invalid {
 .error-message {
     color: #dc3545;
     font-size: 0.85rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
 }
 
-@keyframes slideDown {
+@keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(-20px);
@@ -122,8 +124,25 @@ textarea.contact-form-invalid {
     }
 }
 
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+}
+
 .error-message.show-error {
-    animation: slideDown 0.3s ease-out;
+    opacity: 1;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.error-message.hide-error {
+    opacity: 0;
+    animation: fadeOut 0.2s ease-out;
 }
 /* Button styling */
 
