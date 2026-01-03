@@ -1,5 +1,10 @@
 console.log("Projects page script loaded.");
 
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectList = document.querySelector('.project-list');
+const filterCounter = document.querySelector('.filter-counter');
+
+
 const projects = [
 {
 id: 1,
@@ -112,6 +117,20 @@ function displayProjects() {
         projectList.appendChild(container);
     });
 }
+
+function filterProjects (filteredCategory) {
+    console.log("Filtering projects by category:", filteredCategory);
+}
+
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const category = button.getAttribute('data-category');
+        filterProjects(category);
+        });
+});
 
 // Display projects on page load
 document.addEventListener('DOMContentLoaded', displayProjects);
