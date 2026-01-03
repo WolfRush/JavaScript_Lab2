@@ -161,11 +161,16 @@ clearButton.addEventListener('click', function(event) {
 function showError(input, msg) {
     const errorElement = document.getElementById(input.id + '-error');
     errorElement.textContent = msg;
+    // Trigger animation by removing and re-adding the class
+    errorElement.classList.remove('show-error');
+    void errorElement.offsetWidth; // Force reflow to restart animation
+    errorElement.classList.add('show-error');
 }
     
 function clearError(input) {
     const errorElement = document.getElementById(input.id + '-error');
     errorElement.textContent = "";
+    errorElement.classList.remove('show-error');
 }
 
 // Function to clear form fields

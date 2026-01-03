@@ -444,7 +444,7 @@ footer p {
 
 .footericons {
   display: flex;
-  gap: 0.75rem;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -503,19 +503,22 @@ footer p {
     margin-top: 1rem;
   }
   
-  .contact-form {
+  /* .contact-form {
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-areas:
       "name email email"
       "message message subject"
       "message message send";
-  }
+  } */
 
   footer {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+  }
+  .footericons {
+    gap: 1rem;
   }
 }
 
