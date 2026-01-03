@@ -126,13 +126,13 @@ sendButton.addEventListener('click', function(event) {
 // Clear Button Event Listener
 clearButton.addEventListener('click', function(event) {
     event.preventDefault();
-    clearForm(); 
     clearError(firstName);
     clearError(lastName);
     clearError(email);
     clearError(phone);
     clearError(subject);
     clearError(message);
+    clearForm(); 
 });
 
 // Functions to handle error messages
