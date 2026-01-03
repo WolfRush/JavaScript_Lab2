@@ -57,3 +57,54 @@ link: "http://mossymound.site/johmos-5/uppgift4/html/index.html#main-content"
 }
 ];
 
+// Function to display all projects
+function displayProjects() {
+    const projectList = document.querySelector('.project-list');
+    
+    // Clear existing content
+    projectList.innerHTML = '';
+    
+    // Loop through all projects and create cards
+    projects.forEach(project => {
+        // Create container div
+        const container = document.createElement('div');
+        container.className = 'project-card';
+        
+        // Create image wrapper
+        const imageWrapper = document.createElement('div');
+        imageWrapper.className = 'image-wrapper';
+        
+        // Create image
+        const img = document.createElement('img');
+        img.src = project.image;
+        img.alt = `'${project.title}', project banner`;
+        
+        // Create top tag (title | category)
+        const topTag = document.createElement('h3');
+        topTag.className = 'pro-tag pro-tag-top';
+        topTag.textContent = `${project.title} | ${project.category}`;
+        
+        // Create bottom tag (technologies)
+        const bottomTag = document.createElement('div');
+        bottomTag.className = 'pro-tag pro-tag-bottom';
+        bottomTag.textContent = project.technologies.join(' & ');
+        
+        // Create description paragraph
+        const description = document.createElement('p');
+        description.textContent = project.description;
+        
+        // Assemble the card
+        imageWrapper.appendChild(img);
+        imageWrapper.appendChild(topTag);
+        imageWrapper.appendChild(bottomTag);
+        
+        container.appendChild(imageWrapper);
+        container.appendChild(description);
+        
+        // Add to project list
+        projectList.appendChild(container);
+    });
+}
+
+// Display projects on page load
+document.addEventListener('DOMContentLoaded', displayProjects);

@@ -289,7 +289,7 @@ main {
   flex-direction: column;
 }
 
-.project-list .container {
+.project-list .project-card {
   display: flex;
   flex-direction: column;
   flex: 0 1 100%;
@@ -299,7 +299,7 @@ main {
   border-radius: 0.3rem;
   margin-bottom: 1rem;
 }
-.project-list .container p{
+.project-list .project-card p{
   padding: 0 0.5rem 1rem;
   margin: 0;
 }
@@ -309,7 +309,7 @@ main {
   overflow: hidden;
 }
 
-.project-list .container img {
+.project-list .project-card img {
   width: 100%;
   height: auto;
   display: block;
@@ -553,7 +553,7 @@ footer p {
     gap: 1rem;
   }
 
-  .project-list .container {
+  .project-list .project-card {
     flex: 1 1 48%;
     max-width: 48%;
     flex-direction: column;
