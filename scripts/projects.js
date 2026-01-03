@@ -14,7 +14,7 @@ description: "An non violent movement shooter game built for time trails and exp
 category: "Game",
 technologies: ["Unity", "C#"],
 image: "assets/blastfromthepast_pro.jpg",
-link: "https://example.com"
+link: "https://therushingwolf.itch.io/"
 },
 {
 id: 2,
@@ -32,7 +32,7 @@ description: "A tower defense game with farming elements. Responsible for core g
 category: "Game",
 technologies: ["Unity", "C#"],
 image: "assets/armthefarm_pro.png",
-link: "https://example.com"
+link: "https://youtu.be/SoPdpHS0UkI"
 },
 {
 id: 4,
