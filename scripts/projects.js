@@ -91,7 +91,7 @@ function displayProjects(filteredArray = projects) {
         // Create image
         const img = document.createElement('img');
         img.src = project.image;
-        img.alt = `'${project.title}', project banner`;
+        img.setAttribute('alt', `${project.title}, project banner`);
         
         // Create top tag (title | category)
         const topTag = document.createElement('h3');
@@ -137,12 +137,25 @@ function displayProjects(filteredArray = projects) {
 
 function filterProjects (filteredCategory) {
     console.log("Filtering projects by category:", filteredCategory);
+    /*
+    // Alternative filtering method using .filter
     let filteredArray = projects.filter(function(project) {
         return project.category === filteredCategory;
     });
     if (filteredCategory === 'all') {
         filteredArray = projects;
     }
+    */
+    let filteredArray = [];
+    if (filteredCategory === 'all') {
+        filteredArray = projects;
+    } else {
+        projects.forEach(project => {
+            if (project.category === filteredCategory) {
+                filteredArray.push(project);
+            }
+        });
+    } 
     displayProjects(filteredArray);
 }
 
