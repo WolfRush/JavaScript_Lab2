@@ -59,7 +59,7 @@ description: "A simple task management application to help users organize their 
 category: "Web Development",
 technologies: ["HTML", "CSS", "JavaScript"],
 image: "assets/task_manager_app_pro.png",
-link: "http://mossymound.site/johmos-5/uppgift4/html/index.html#main-content"
+link: "http://mossymound.site/johmos-5/uppgift4/index.html"
 }
 ];
 

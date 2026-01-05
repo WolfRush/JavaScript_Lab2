@@ -50,22 +50,10 @@ img {
   width: 100%;
   min-height: 100vh;
 }
-
-header {
-  grid-area: header;
-}
-
-nav {
-  grid-area: menu;
-}
-
-main {
-  grid-area: main;
-}
-
-footer {
-  grid-area: footer;
-}
+header {grid-area: header;}
+nav {grid-area: menu;}
+main {grid-area: main;}
+footer {grid-area: footer;}
 
 /* -- Header -- */
 header {
@@ -334,90 +322,7 @@ main {
 .pro-tag-bottom {
   bottom: 0.5rem;
 }
-/* -- Contact Form Section -- */
-/* .contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  margin-top: auto;
-  background-color: rgb(60, 40, 80);
-  padding: 2rem;
-  padding-top: 0;
-}
 
-.contact-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "name"
-    "email"
-    "message"
-    "subject"
-    "send";
-  gap: 0.6rem;
-  margin: 0.5rem auto;
-}
-
-.form-field {
-  display: contents;
-}
-
-.form-name {
-  grid-area: name;
-}
-
-.form-email {
-  grid-area: email;
-}
-
-.form-message-field {
-  grid-area: message;
-}
-
-.form-subject {
-  grid-area: subject;
-}
-
-.form-send {
-  grid-area: send;
-  place-self: end stretch;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.6rem 0.75rem;
-  font-size: 1rem;
-  background-color: rgb(40, 40, 50);
-  color: rgb(220, 220, 220);
-  border: 1px solid rgb(80, 60, 110);
-  border-radius: 4px;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: rgb(255, 200, 50);
-  box-shadow: 0 0 0 2px rgba(255, 200, 50, 0.2);
-}
-
-.contact-form button {
-  padding: 0.6rem 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  width: 100%;
-  background-color: rgb(100, 70, 140);
-  color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.contact-form button:hover {
-  background: rgb(255, 200, 50);
-  color: rgb(20, 20, 25);
-  box-shadow: 0 4px 12px rgba(255, 200, 50, 0.3);
-} */
 /* -- Footer -- */
 footer {
   display: flex;
@@ -516,14 +421,6 @@ footer .footericons a img:hover {
     clear: both;
     margin-top: 1rem;
   }
-  
-  /* .contact-form {
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-areas:
-      "name email email"
-      "message message subject"
-      "message message send";
-  } */
 
   footer {
     flex-direction: row;

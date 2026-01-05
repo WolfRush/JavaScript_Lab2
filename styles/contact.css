@@ -17,38 +17,14 @@
         'send'
         'clear';
 }
-
-.form-first-name {
-    grid-area: first-name;
-}
-
-.form-last-name {
-    grid-area: last-name;
-}
-
-.form-email {
-    grid-area: email;
-}
-
-.form-phone {
-    grid-area: phone;
-}
-
-.form-subject {
-    grid-area: subject;
-}
-
-.form-message-field {
-    grid-area: message;
-}
-
-.form-send {
-    grid-area: send;
-}
-
-.form-clear {
-    grid-area: clear;
-}
+.form-first-name {grid-area: first-name;}
+.form-last-name {grid-area: last-name;}
+.form-email {grid-area: email;}
+.form-phone {grid-area: phone;}
+.form-subject {grid-area: subject;}
+.form-message-field {grid-area: message;}
+.form-send {grid-area: send;}
+.form-clear {grid-area: clear;}
 
 /* Label styling */
 .contact-form label {
@@ -144,8 +120,8 @@ textarea.contact-form-invalid {
     opacity: 0;
     animation: fadeOut 0.2s ease-out;
 }
-/* Button styling */
 
+/* Button styling */
 .contact-form button {
     width: 100%;
     padding: 0.75rem;
@@ -175,7 +151,7 @@ textarea.contact-form-invalid {
     background-color: rgb(147, 143, 150);
 }
 
-
+/* Responsive layout for larger screens */
 @media (min-width: 600px) {
 
     .contact-form {
