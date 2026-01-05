@@ -29,7 +29,7 @@ function validatePhone(phone) {
 }
 
 function validateMessage(message) {
-    return message.trim().length > 20;
+    return message.trim().length >= 20;
 }
 
 //Message Character Counter Event Listener
@@ -114,7 +114,7 @@ sendButton.addEventListener('click', function(event) {
         const alertMessage = "Thank you " + firstName.value + "! I will contact you soon!";
         const alertDiv = document.createElement('div');
         alertDiv.textContent = alertMessage;
-        alertDiv.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background: black; color: white; border-radius: 5px; border: 1px solid rgb(30, 223, 72); z-index: 1000;';
+        alertDiv.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background: rgb(20, 20, 25); color: rgb(255, 200, 50); border-radius: 5px; border: 1px solid rgb(30, 223, 72); z-index: 1000;';
         document.body.appendChild(alertDiv);
         
         // Clear form 3 seconds after submission
