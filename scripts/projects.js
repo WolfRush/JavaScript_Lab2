@@ -1,11 +1,12 @@
 console.log("Projects page script loaded.");
 
+// DOM Elements
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projectList = document.querySelector('.project-list');
 const filterCounter = document.getElementById('filter-counter');
 const currentPage = window.location.pathname.split("/").pop();
 
-
+// Project Data
 const projects = [
 {
 id: 1,
@@ -73,7 +74,7 @@ function displayProjects(filteredArray = projects) {
         filterCounter.textContent = `Showing ${filteredArray.length} of ${projects.length} projects`;
     }
 
-    // Show only first 2 projects on index page
+    // Show only top 2 projects on index page for cleaner look
     if (currentPage === 'index.html') {
         filteredArray = filteredArray.slice(0, 2); 
     }

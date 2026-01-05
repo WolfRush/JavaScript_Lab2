@@ -35,6 +35,7 @@ function validateMessage(message) {
 //Message Character Counter Event Listener
 message.addEventListener('input', charfunction);
 
+// Character counter function for message field
 function charfunction() {
     const charCount = message.value.length;
     const counterElement = document.getElementById('message-counter');
@@ -53,13 +54,16 @@ sendButton.addEventListener('click', function(event) {
     let isValid = true; // Assume form is valid
 
     // Validate Names
+    // Run validation functions, If invalid, show error, set isValid to false
     if (!validateName(firstName.value)) {
         showError(firstName, "First name must contain only letters.");
         isValid = false;
     }
+    // If valid, clear error
     else {
         clearError(firstName);
     }
+
     if (!validateName(lastName.value)) {
         showError(lastName, "Last name must contain only letters.");;
         isValid = false;
@@ -106,12 +110,14 @@ sendButton.addEventListener('click', function(event) {
 
     // if Valid Check
     if (isValid) {
+        //show alert message with sender's first name and styling
         const alertMessage = "Thank you " + firstName.value + "! I will contact you soon!";
         const alertDiv = document.createElement('div');
         alertDiv.textContent = alertMessage;
         alertDiv.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background: black; color: white; border-radius: 5px; border: 1px solid rgb(30, 223, 72); z-index: 1000;';
         document.body.appendChild(alertDiv);
         
+        // Clear form 3 seconds after submission
         clearForm();
         setTimeout(() => {
             alertDiv.remove();
